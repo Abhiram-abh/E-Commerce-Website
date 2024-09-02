@@ -3,9 +3,10 @@ import './CSS/ShopCategory.css'
 import { ShopContest } from '../context/ShopContest'
 import dropdown_icon from '../components/Assets/dropdown_icon.png'
 import Item from '../components/items/item'
+import all_products from '../components/Assets/all_product';
 
 const ShopCategory = (props) => {
-  const {all_products}=useContext(ShopContest)
+  // const {all_products}=useContext(ShopContest)
   return (
     <div className='shop-category'>
       <img className='shopcategory-banner' src={props.banner} alt="" />
@@ -22,7 +23,7 @@ const ShopCategory = (props) => {
   <div className="shopcategory-products">
     {all_products.map((product, i) => {
       if (props.category === product.category) {
-        return 
+        return(
           <Item
             key={i}
             id={product.id}
@@ -31,7 +32,7 @@ const ShopCategory = (props) => {
             new_price={product.new_price}
             old_price={product.old_price}
           />
-        
+        )
       } else {
         return null;
       }
